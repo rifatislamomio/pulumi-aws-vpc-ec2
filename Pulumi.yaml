@@ -1,0 +1,6 @@
+name: pulumi-ec2-vpc
+runtime: nodejs
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript
