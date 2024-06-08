@@ -1,9 +1,9 @@
-## Pulumi with AWS Services
+# Pulumi with AWS Services
 
-### Description
+## Description
 Configuring, deploying and managing AWS VPC and EC2 instances using Pulumi's Typescipt SDK for infrastructure as code. 
 
-### Project Explanation: 
+## Project Explanation: 
 ***VPC***: Created a VPC with a CIDR block of `100.0.0.0/16`.
 
 ***Subnets***: 
