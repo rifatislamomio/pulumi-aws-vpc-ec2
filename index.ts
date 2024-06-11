@@ -1,5 +1,2 @@
-import { privateSubnetId, publicSubnetId, vpcCidrBlock, vpcId } from "./vpc";
-import { bastionInstanceArn, primaryInstanceArn } from "./ec2";
-
-console.log({ vpcId, vpcCidrBlock, privateSubnetId, publicSubnetId });
-console.log({ bastionInstanceArn, primaryInstanceArn });
+export { privateSubnetId, publicSubnetId, vpcCidrBlock, vpcId } from "./vpc";
+export { bastionInstanceArn, primaryInstanceArn } from "./ec2";
