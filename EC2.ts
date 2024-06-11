@@ -45,9 +45,9 @@ const primaryServerSG = new aws.ec2.SecurityGroup("ec2-dev-primary-sg", {
       cidrBlocks: [vpcCidrBlock]
     },
     {
-      protocol: aws.ec2.ProtocolType.All,
-      fromPort: 0,
-      toPort: 0,
+      protocol: aws.ec2.ProtocolType.ICMP,
+      fromPort: -1,
+      toPort: -1,
       cidrBlocks: [vpcCidrBlock]
     }
   ],
@@ -80,16 +80,22 @@ const bastionInstance = new aws.ec2.Instance("ec2-dev-bastion-instance", {
   }
 });
 
-const primaryInstance = new aws.ec2.Instance("ec2-dev-primary-instance", {
-  instanceType: "t2.small",
-  ami: "ami-04b70fa74e45c3917", //Ubuntu, 24.04 LTS
-  keyName: ec2KeyPair.keyName,
-  vpcSecurityGroupIds: [primaryServerSG.id],
-  subnetId: privateSubnetId,
-  tags: {
-    Name: "ec2-dev-primary-instance"
+const primaryInstance = new aws.ec2.Instance(
+  "ec2-dev-primary-instance",
+  {
+    instanceType: "t2.small",
+    ami: "ami-04b70fa74e45c3917", //Ubuntu, 24.04 LTS
+    keyName: ec2KeyPair.keyName,
+    vpcSecurityGroupIds: [primaryServerSG.id],
+    subnetId: privateSubnetId,
+    tags: {
+      Name: "ec2-dev-primary-instance"
+    }
+  },
+  {
+    dependsOn: [primaryServerSG]
   }
-});
+);
 
-export const bastionInstanceArn = bastionInstance.arn
-export const primaryInstanceArn = primaryInstance.arn
+export const bastionInstanceArn = bastionInstance.arn;
+export const primaryInstanceArn = primaryInstance.arn;
