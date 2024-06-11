@@ -1,5 +1,8 @@
 import * as aws from "@pulumi/aws";
-import { vpcId, vpcCidrBlock, privateSubnetId, publicSubnetId } from "./VPC";
+import * as dotenv from "dotenv";
+import { vpcId, vpcCidrBlock, privateSubnetId, publicSubnetId } from "./vpc";
+
+dotenv.config();
 
 const bastionServerSG = new aws.ec2.SecurityGroup("ec2-dev-bastion-sg", {
   vpcId,
@@ -87,3 +90,6 @@ const primaryInstance = new aws.ec2.Instance("ec2-dev-primary-instance", {
     Name: "ec2-dev-primary-instance"
   }
 });
+
+export const bastionInstanceArn = bastionInstance.arn
+export const primaryInstanceArn = primaryInstance.arn
