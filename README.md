@@ -20,6 +20,7 @@ Configuring, deploying and managing AWS VPC and EC2 instances using Pulumi's Typ
 
 ***Route Table Association***: The route tables are associated with the specific subnets to apply the routing rules.
 
+
 ***Security Group***: 
 - Security group for the bastion EC2 instance is created to allow `SSH` (port 22) and `HTTP` (port 80) access from anywhere.
 - Another security group for the primary EC2 instance is created to allow everything within the VPC CIDR block.
