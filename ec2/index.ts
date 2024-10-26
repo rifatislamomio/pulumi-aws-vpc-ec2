@@ -1,6 +1,6 @@
 import * as aws from "@pulumi/aws";
 import * as dotenv from "dotenv";
-import { vpcId, vpcCidrBlock, privateSubnetId, publicSubnetId } from "./vpc";
+import { vpcId, vpcCidrBlock, privateSubnetId, publicSubnetId } from "../vpc/index";
 
 dotenv.config();
 
