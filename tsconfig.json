@@ -12,5 +12,5 @@
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true
   },
-  "files": ["index.ts", "EC2.ts", "vpc/VPC.ts"]
+  "files": ["index.ts", "ec2/index.ts", "vpc/index.ts"]
 }
