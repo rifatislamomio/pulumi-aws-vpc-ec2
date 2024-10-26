@@ -1,2 +1,2 @@
-export { privateSubnetId, publicSubnetId, vpcCidrBlock, vpcId } from "./vpc";
-export { bastionInstanceArn, primaryInstanceArn } from "./ec2";
+export { privateSubnetId, publicSubnetId, vpcCidrBlock, vpcId } from "./vpc/index";
+export { bastionInstanceArn, primaryInstanceArn } from "./ec2/index";
